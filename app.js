@@ -30,13 +30,13 @@ app.use(function(req, res, next) {
 });
 const mongoose=require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/oauth',{useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify: false});
+mongoose.connect('mongodb+srv://reelee:physics522@cluster0.ltxb6.mongodb.net/oauth?retryWrites=true&w=majority',{useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify: false});
 mongoose.connection.on('connected', function(){
   console.log('connected');
 });
 
 
-const PORT=3000 ||process.env.PORT;
+const PORT=3000 || process.env.PORT;
 const auth=require('./routes/auth');
 const user=require('./routes/user')
 app.use('/auth', auth);
