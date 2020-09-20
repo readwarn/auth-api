@@ -36,12 +36,15 @@ mongoose.connection.on('connected', function(){
 });
 
 
-const PORT=3000 || process.env.PORT;
+
 const auth=require('./routes/auth');
-const user=require('./routes/user')
+const user=require('./routes/user');
+app.get('/',(req,res)=>{
+  res.send('home');
+})
 app.use('/auth', auth);
 app.use('/user',user);
 
-app.listen(PORT, ()=>{
-    console.log('server started');
+app.listen(process.env.PORT || 3000,function(){
+  console.log("running");
 })
