@@ -19,7 +19,7 @@ const passportSetup=require('./config/oauthStrategy');
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Origin', 'https://rocky-temple-08906.herokuapp.com');
+  res.header('Access-Control-Allow-Origin', 'https://hungry-shirley-b0e560.netlify.app');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
   if ('OPTIONS' == req.method) {
