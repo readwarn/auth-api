@@ -1,7 +1,6 @@
 const router=require('express').Router();
 const passport=require('passport');
 const UserServices = require('../models/user');
-const config=require('../config/oauthStrategy');
 
 router.get('/google',passport.authenticate('google',{scope:['profile']}));
 router.get('/google/redirect',passport.authenticate('google'),(req,res)=>{
