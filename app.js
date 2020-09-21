@@ -10,7 +10,7 @@ mongoose.connect('mongodb+srv://reelee:physics522@cluster0.ltxb6.mongodb.net/oau
 mongoose.connection.on('connected', function(){
   console.log('connected');
 });
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(cookieParser('secret'));
 app.use(require('express-session')({
   secret:'we now in the authetic world...yay yay',
