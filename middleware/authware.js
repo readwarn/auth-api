@@ -8,11 +8,6 @@ module.exports={
             });
         }
         else{
-            res.json({
-                isLoggedIn:true,
-                cookies:req.cookies,
-                session:req.session
-            });
             next()
         }
     }
