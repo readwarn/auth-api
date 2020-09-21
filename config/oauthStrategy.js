@@ -5,6 +5,16 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const localStrategy=require('passport-local').Strategy;
 const UserServices=require('../models/user');
 
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  UserServices.User.findById(id,function(err,user){
+      done(err,user)
+  });
+});
+
 passport.use(new GoogleStrategy({
     clientID: '766284901009-addbg5mgubtrnv5doie939saihjsr530.apps.googleusercontent.com',
     clientSecret: 'LhNiJw8ZqbyWw64-Fzkdyt1i',
@@ -47,13 +57,3 @@ passport.use(new localStrategy((username,password,done)=>{
     return done(null, user);
   })
 }))
-
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser((id, done) => {
-  UserServices.User.findById(id,function(err,user){
-      done(err,user)
-  });
-});
