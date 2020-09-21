@@ -19,7 +19,6 @@ app.use(require('express-session')({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-const passportSetup=require('./config/oauthStrategy');
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Credentials', true);
   res.header('Access-Control-Allow-Origin', 'https://warm-scrubland-49028.herokuapp.com');
@@ -36,4 +35,4 @@ app.use('/user',user);
 
 app.listen(process.env.PORT || 3000,function(){
   console.log("running");
-})
+});

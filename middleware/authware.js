@@ -3,9 +3,16 @@ module.exports={
         if(!req.isAuthenticated()) {
             res.json({
                 isLoggedIn:false,
+                cookies:req.cookies,
+                session:req.session
             });
         }
         else{
+            res.json({
+                isLoggedIn:true,
+                cookies:req.cookies,
+                session:req.session
+            });
             next()
         }
     }
