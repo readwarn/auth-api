@@ -8,7 +8,7 @@ const UserServices=require('../models/user');
 passport.use(new GoogleStrategy({
     clientID: '766284901009-addbg5mgubtrnv5doie939saihjsr530.apps.googleusercontent.com',
     clientSecret: 'LhNiJw8ZqbyWw64-Fzkdyt1i',
-    callbackURL: 'http://localhost:3000/auth/google/redirect'
+    callbackURL: 'https://rocky-temple-08906.herokuapp.com/auth/google/redirect'
   },
    function (accessToken, refreshToken, profile, done){
     UserServices.findOrCreate(UserServices.User,done,profile);
@@ -18,7 +18,7 @@ passport.use(new GoogleStrategy({
 passport.use(new GitHubStrategy({
     clientID: '0ff9f174008c98f84fc6',
     clientSecret: '3a059e3bd45cc324f11f0555de0a874bcfdb45e3',
-    callbackURL: 'http://localhost:3000/auth/github/redirect'
+    callbackURL: 'https://rocky-temple-08906.herokuapp.com/auth/github/redirect'
   },
   function(accessToken, refreshToken, profile, done) {
     UserServices.findOrCreate(UserServices.User,done,profile);
@@ -28,7 +28,7 @@ passport.use(new GitHubStrategy({
 passport.use(new FacebookStrategy({
   clientID: '2599125657002783',
   clientSecret: 'bb2ff8ece7f15a10f5d1cedce0d20e20',
-  callbackURL: "http://localhost:3000/auth/facebook/redirect"
+  callbackURL: "https://rocky-temple-08906.herokuapp.com/auth/facebook/redirect"
 },
 function(accessToken, refreshToken, profile, done) {
      UserServices.findOrCreate(UserServices.User,done,profile);
