@@ -9,7 +9,7 @@ router.get('/',Authenticator.isLoggedIn,(req,res)=>{
 });
 
 router.post('/',Authenticator.isLoggedIn,(req,res)=>{
-   UserServices.User.findOneAndUpdate({username:req.user.username},req.body).then((user)=>{
+   UserServices.User.findByIdAndUpdate(req.user._id,req.body).then((user)=>{
        res.json({
          isLoggedIn:true
        })
